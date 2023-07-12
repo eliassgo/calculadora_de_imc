@@ -1,0 +1,20 @@
+:root {
+    --CorPrincipal: #468B97;
+    --CorSecundaria: #fff;
+    --CorHeader: #071952;
+}
+
+* {
+    color: var(--CorSecundaria);
+    font-size: sans-serif;
+}
+
+body {
+    background-color: var(--CorPrincipal);
+}
+
+.header {
+    color: var(--CorSecundaria);
+    background-color: var(--CorHeader);
+    padding: 20px 0 20px 0;
+}
