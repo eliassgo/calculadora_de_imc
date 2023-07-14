@@ -5,8 +5,8 @@ import Tabela from "./components/Tabela";
 import Resultado from './components/Resultado';
 
 function App() {
-  const [altura, setAltura] = useState(0);
-  const [peso, setPeso] = useState(0);
+  const [altura, setAltura] = useState('');
+  const [peso, setPeso] = useState('');
   const [displayClass, setDisplayClass] = useState('none');
   const [displayClassButton, setDisplayClassButton] = useState('none');
   const [resultado, setResultado] = useState('');
@@ -20,26 +20,21 @@ function App() {
 
 
   // Função para captar dados do usuário
-  const obtendoDadosDoImcPeso = (e) => {
-    setPeso(Number(e.target.value))
-
-  }
-  const obtendoDadosDoImcAltura = (e) => {
-    setAltura(parseFloat(e.target.value))
-  }
+  const obtendoDadosDoImcPeso = (e) => { setPeso(Number(e.target.value)) }
+  const obtendoDadosDoImcAltura = (e) => { setAltura(parseFloat(e.target.value)) }
 
   // Função para verificar se é número 
   const verificaNumero = (evento) => {
     evento.preventDefault();
     if (isNaN(altura) || isNaN(peso)) {
       alert('Escreva um número válido')
-
     } else {
       calculaIMC()
       setDisplayClassButton('block')
       setDisplayClass('block')
     }
   }
+
 
   // Função para calcular IMC e Retornar sua devida classificação
   const calculaIMC = () => {
@@ -60,7 +55,7 @@ function App() {
   }
 
   // Função para limpar os dados de pesquisa
-  function limparDadosDaPesquisa() {
+  const limparDadosDaPesquisa = () => {
     if (displayClass === 'block' || displayClassButton === 'block') {
       setDisplayClassButton('none');
       setDisplayClass('none');
@@ -69,6 +64,8 @@ function App() {
       setMudarCorSobrepeso('');
       setMudarCorObesidade('');
       setMudarCorObGrave('');
+      setAltura('')
+      setPeso('')
     } else {
       setDisplayClassButton('block')
       setDisplayClass('block')

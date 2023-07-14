@@ -1,7 +1,8 @@
 const Tabela = ({ mudarCorMagreza, mudarCorNormal, mudarCorObGrave, mudarCorObesidade, mudarCorSobrepeso }) => {
     return (
-        <div className="table-responsive">
+        <div className="table-responsive caption-top">
             <table className='table table-bordered table-striped table-rounded'>
+                <caption className="text-light">* Parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.</caption>
                 <thead className='table-primary'>
                     <tr>
                         <th className='text-center' colSpan="3" >Informações sobre os dados do IMC</th>
