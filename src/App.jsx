@@ -20,14 +20,14 @@ function App() {
 
 
   // Função para captar dados do usuário
-  const obtendoDadosDoImcPeso = (e) => { setPeso(Number(e.target.value)) }
-  const obtendoDadosDoImcAltura = (e) => { setAltura(parseFloat(e.target.value)) }
+  const obtendoDadosDoImcAltura = (e) => { setAltura(e.target.value) }
+  const obtendoDadosDoImcPeso = (e) => { setPeso(e.target.value) }
 
   // Função para verificar se é número 
   const verificaNumero = (evento) => {
     evento.preventDefault();
     if (isNaN(altura) || isNaN(peso)) {
-      alert('Escreva um número válido')
+      alert('Por favor, insira valores numéricos válidos para altura e peso.')
     } else {
       calculaIMC()
       setDisplayClassButton('block')
@@ -38,7 +38,7 @@ function App() {
 
   // Função para calcular IMC e Retornar sua devida classificação
   const calculaIMC = () => {
-    const imc = peso / (altura * altura)
+    const imc = parseFloat(peso) / (parseFloat(altura) * parseFloat(altura))
 
     if (imc > 40.0) {
       return setResultado(imc.toFixed(2)), setClassificacao('OBESIDADE GRAVE'), setGrau('III'), setMudarCorObGrave('table-danger')
